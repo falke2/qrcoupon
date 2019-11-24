@@ -13,8 +13,10 @@
             QrcodeStream
         },
         methods: {
-            onDecode(event) {
-                console.log(event);
+            onDecode(code) {
+                if(code.indexOf('ASY') === 0) {
+                    this.$emit('done', code.replace('ASY', ''));
+                }
             }
         }
     }
